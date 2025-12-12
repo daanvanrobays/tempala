@@ -29,95 +29,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+// Header state on scroll
+const header = document.querySelector('header');
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
-        }
-    });
-}, observerOptions);
-
-// Observe service cards for animation
-document.querySelectorAll('.service-card').forEach(card => {
-    observer.observe(card);
-});
-
-// Header background change on scroll
 window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
     if (window.scrollY > 100) {
-        header.style.backgroundColor = 'rgba(30, 58, 138, 0.95)';
-        header.style.backdropFilter = 'blur(10px)';
+        header.classList.add('scrolled');
     } else {
-        header.style.backgroundColor = '#1e3a8a';
-        header.style.backdropFilter = 'none';
+        header.classList.remove('scrolled');
     }
 });
 
-window.addEventListener('load', () => {
-    // Add particle effect to hero section
-    createParticles();
-
-});
-
-// Create floating particles for adventure feel
-function createParticles() {
-    const hero = document.querySelector('.hero');
-    for (let i = 0; i < 500; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.cssText = `
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            pointer-events: none;
-            animation: float-${i % 3} ${3 + Math.random() * 2}s infinite ease-in-out;
-            left: ${Math.random() * 100}%;
-            top: ${Math.random() * 100}%;
-        `;
-        hero.appendChild(particle);
-    }
-}
-
-// Add particle animation keyframes
-const particleStyles = document.createElement('style');
-particleStyles.textContent = `
-    @keyframes float-0 {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-20px) rotate(180deg); }
-    }
-    @keyframes float-1 {
-        0%, 100% { transform: translateX(0px) rotate(0deg); }
-        50% { transform: translateX(20px) rotate(180deg); }
-    }
-    @keyframes float-2 {
-        0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
-        50% { transform: translate(15px, -15px) rotate(180deg); }
-    }
-`;
-document.head.appendChild(particleStyles);
-
-// Skill tags hover effect
-document.querySelectorAll('.skill-tag').forEach(tag => {
-    tag.addEventListener('mouseenter', function() {
-        this.style.transform = 'scale(1.1)';
-        this.style.transition = 'transform 0.3s ease';
-    });
-    
-    tag.addEventListener('mouseleave', function() {
-        this.style.transform = 'scale(1)';
-    });
-});
-
-// Active navigation link highlighting and services heading color change
+// Active navigation link highlighting
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-menu a');
@@ -136,57 +59,162 @@ window.addEventListener('scroll', () => {
             link.classList.add('active');
         }
     });
-
-    // Change services heading color based on scroll height
-    const servicesHeading = document.querySelector('.services h2');
-    const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercent = (window.scrollY / documentHeight) * 100;
-
-    if (scrollPercent > 24) {
-        servicesHeading.style.color = '#ffffff';
-    } else {
-        servicesHeading.style.color = '#2d5a3d';
-    }
 });
 
-// Enhanced parallax effect for hero section with adventure elements
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.3}px)`;
-        // Add rotation effect for more dynamic feel
-        const rotation = scrolled * 0.02;
-        hero.style.filter = `hue-rotate(${rotation}deg)`;
-    }
-    
-    // Add floating animation to service icons
-    const serviceIcons = document.querySelectorAll('.service-icon');
-    serviceIcons.forEach((icon, index) => {
-        const offset = Math.sin(Date.now() * 0.001 + index) * 5;
-        icon.style.transform = `translateY(${offset}px) rotate(${offset * 0.5}deg)`;
-    });
+// Cursor glow effect
+const cursorGlow = document.createElement('div');
+cursorGlow.className = 'cursor-glow';
+document.body.appendChild(cursorGlow);
+
+let mouseX = 0;
+let mouseY = 0;
+let glowX = 0;
+let glowY = 0;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 });
 
-// Form input focus effects
-document.querySelectorAll('.form-group input, .form-group textarea').forEach(input => {
-    input.addEventListener('focus', function() {
-        this.parentElement.classList.add('focused');
-    });
-    
-    input.addEventListener('blur', function() {
-        if (this.value === '') {
-            this.parentElement.classList.remove('focused');
+// Smooth cursor follow
+function animateCursor() {
+    const speed = 0.1;
+    glowX += (mouseX - glowX) * speed;
+    glowY += (mouseY - glowY) * speed;
+
+    cursorGlow.style.left = glowX + 'px';
+    cursorGlow.style.top = glowY + 'px';
+
+    requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Scroll reveal animation with stagger
+const revealElements = document.querySelectorAll('.service-card, .about-content, .contact-info, .hero-content');
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            // Stagger service cards
+            if (entry.target.classList.contains('service-card')) {
+                const cards = document.querySelectorAll('.service-card');
+                const cardIndex = Array.from(cards).indexOf(entry.target);
+                entry.target.style.transitionDelay = `${cardIndex * 0.15}s`;
+            }
+            entry.target.classList.add('visible');
         }
     });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
 });
 
-// Add CSS for form focus effects
-const formStyle = document.createElement('style');
-formStyle.textContent = `
-    .form-group.focused label {
-        color: #3b82f6;
-        font-weight: 600;
+revealElements.forEach(el => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+});
+
+// Magnetic effect on buttons
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) scale(1.05)`;
+    });
+
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0, 0) scale(1)';
+    });
+});
+
+// Text scramble effect on hero title hover
+const heroTitle = document.querySelector('.hero-content h2');
+const originalText = heroTitle ? heroTitle.textContent : '';
+const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&';
+
+let scrambleInterval;
+
+if (heroTitle) {
+    heroTitle.addEventListener('mouseenter', () => {
+        let iterations = 0;
+        clearInterval(scrambleInterval);
+
+        scrambleInterval = setInterval(() => {
+            heroTitle.textContent = originalText
+                .split('')
+                .map((char, index) => {
+                    if (index < iterations) {
+                        return originalText[index];
+                    }
+                    if (char === ' ') return ' ';
+                    return chars[Math.floor(Math.random() * chars.length)];
+                })
+                .join('');
+
+            iterations += 1/3;
+
+            if (iterations >= originalText.length) {
+                clearInterval(scrambleInterval);
+                heroTitle.textContent = originalText;
+            }
+        }, 30);
+    });
+}
+
+// Tilt effect on service cards
+document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateX(10px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateX(0)';
+    });
+});
+
+// Skill tag random highlight
+const skillTags = document.querySelectorAll('.skill-tag');
+let highlightInterval;
+
+function randomHighlight() {
+    skillTags.forEach(tag => tag.classList.remove('highlight'));
+
+    if (skillTags.length > 0) {
+        const randomIndex = Math.floor(Math.random() * skillTags.length);
+        skillTags[randomIndex].style.borderColor = 'var(--neon)';
+        skillTags[randomIndex].style.color = 'var(--neon)';
+
+        setTimeout(() => {
+            skillTags[randomIndex].style.borderColor = '';
+            skillTags[randomIndex].style.color = '';
+        }, 500);
     }
-`;
-document.head.appendChild(formStyle);
+}
+
+// Start random highlight when about section is visible
+const aboutSection = document.querySelector('.about');
+if (aboutSection) {
+    const aboutObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                highlightInterval = setInterval(randomHighlight, 1500);
+            } else {
+                clearInterval(highlightInterval);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    aboutObserver.observe(aboutSection);
+}
