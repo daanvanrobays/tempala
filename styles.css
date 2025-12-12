@@ -476,7 +476,7 @@ header.scrolled {
 
 /* Contact Section */
 .contact {
-    padding: 150px 0;
+    padding: 150px 0 250px;
     background: var(--dark);
     position: relative;
 }
@@ -717,9 +717,12 @@ footer {
         display: block;
     }
 
-    .services,
-    .contact {
+    .services {
         padding: 100px 0;
+    }
+
+    .contact {
+        padding: 100px 0 200px;
     }
 
     .about-image {
