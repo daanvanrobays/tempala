@@ -400,6 +400,93 @@ a {
     flex-wrap: wrap;
 }
 
+.site-footer.section-soft {
+    background: var(--bg-soft);
+}
+
+/* Language switch */
+.lang-switch {
+    display: flex;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.lang-switch a {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-decoration: none;
+}
+
+.lang-switch a[aria-current="page"] {
+    background: var(--bg-soft);
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* Link from the main page to the small-business page */
+.bridge {
+    background: var(--hero);
+    padding: 3.5rem 0;
+}
+
+.bridge .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem 3rem;
+}
+
+.bridge h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    max-width: 34rem;
+    text-wrap: balance;
+}
+
+.bridge p {
+    color: var(--muted);
+    margin-top: 0.5rem;
+    max-width: 34rem;
+}
+
+/* How we start */
+.steps {
+    list-style: none;
+    counter-reset: step;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+
+.steps li {
+    counter-increment: step;
+    padding: 1.75rem;
+    background: var(--surface);
+    border-radius: var(--radius);
+}
+
+.steps li::before {
+    content: counter(step);
+    display: block;
+    margin-bottom: 1rem;
+    font-family: var(--serif);
+    font-variation-settings: "SOFT" 100;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--green-text);
+}
+
+.steps h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.steps p {
+    color: var(--muted);
+}
+
 /* Gentle fade-in, only when JS is running */
 .js .reveal {
     opacity: 0;
@@ -432,7 +519,8 @@ a {
         display: none;
     }
 
-    .help-list {
+    .help-list,
+    .steps {
         grid-template-columns: 1fr;
         gap: 2.5rem;
     }

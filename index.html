@@ -3,150 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tempala | Solution Architecture & Engineering</title>
-    <meta name="description" content="Hi, I'm Daan. Through Tempala I help teams turn business goals into calm, sturdy systems with solution architecture, technical advice and hands-on engineering.">
+    <title>Tempala</title>
+    <link rel="alternate" hreflang="en" href="https://tempala.be/en/">
+    <link rel="alternate" hreflang="nl" href="https://tempala.be/nl/">
+    <link rel="alternate" hreflang="x-default" href="https://tempala.be/">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..600,0..100&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <script>
+        // Send the visitor to their language: saved choice first, then the device locale
+        (function () {
+            var supported = ['en', 'nl'];
+            var lang = null;
+            try {
+                lang = localStorage.getItem('lang');
+            } catch (e) {}
+            if (supported.indexOf(lang) === -1) {
+                lang = 'en';
+                var preferred = navigator.languages || [navigator.language];
+                for (var i = 0; i < preferred.length; i++) {
+                    var code = (preferred[i] || '').toLowerCase().split('-')[0];
+                    if (supported.indexOf(code) !== -1) {
+                        lang = code;
+                        break;
+                    }
+                }
+            }
+            location.replace(lang + '/index.html' + location.hash);
+        })();
+    </script>
+    <noscript><meta http-equiv="refresh" content="0; url=en/index.html"></noscript>
 </head>
 <body>
-    <header class="site-header">
-        <a href="#hello" class="brand" aria-label="Tempala, back to top">
-            <img src="tempala-logo.svg" alt="" class="brand-mark">
-            <span class="brand-name">tempala</span>
-        </a>
-        <nav class="site-nav" aria-label="Main">
-            <a href="#help">How I can help</a>
-            <a href="#approach">How I work</a>
-            <a href="#toolbox">Toolbox</a>
-        </nav>
-        <div class="header-actions">
-            <a href="#contact" class="pill pill-small">Say hi</a>
-        </div>
-    </header>
-
-    <main>
-        <section id="hello" class="hello">
-            <div class="hello-light" aria-hidden="true"></div>
-            <div class="wrap">
-                <p class="eyebrow">Hi, I'm Daan</p>
-                <h1>Pragmatic solutions,<br>driven by <em>curiosity</em>.</h1>
-                <p class="lead">I'm a solution architect who enjoys turning tangled business questions into calm, sturdy systems. And I still like getting my hands dirty in the code.</p>
-                <div class="hello-actions">
-                    <a href="#contact" class="pill">Let's have a chat</a>
-                    <a href="#help" class="text-link">See how I can help <span aria-hidden="true">↓</span></a>
-                </div>
-            </div>
-        </section>
-
-        <section id="help" class="section">
-            <div class="wrap">
-                <header class="section-intro">
-                    <p class="eyebrow">How I can help</p>
-                    <h2>Wherever you are in the journey, I'm happy to join.</h2>
-                </header>
-                <ul class="help-list">
-                    <li class="reveal">
-                        <h3>Solution architecture</h3>
-                        <p>You have a goal, and I help shape the system that gets you there. We weigh performance, scalability and maintainability together, so the design still makes sense a few years from now.</p>
-                    </li>
-                    <li class="reveal">
-                        <h3>Technical advice</h3>
-                        <p>Stuck on a choice, or want a second pair of eyes? I'll review architecture and strategy with you and talk through the trade-offs in plain language, so you can decide with confidence.</p>
-                    </li>
-                    <li class="reveal">
-                        <h3>Cloud infrastructure</h3>
-                        <p>Setting up AWS or Azure environments, containers and pipelines that are secure, reliable and kind to your budget.</p>
-                    </li>
-                    <li class="reveal">
-                        <h3>Engineering &amp; delivery</h3>
-                        <p>Plans are only useful once they ship. I stay hands-on in backend development and DevOps to turn the architecture into working software.</p>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="approach" class="section section-soft">
-            <div class="wrap approach">
-                <div class="approach-text">
-                    <p class="eyebrow">How I work</p>
-                    <h2>Calm, open-minded and curious.</h2>
-                    <p>I'm interested in a lot of things, and solving problems comes naturally to me. I use a mix of pragmatism and experimentation: try something, learn from it, improve.</p>
-                    <p>The people I work with, on projects and off them, are what keeps me getting better every day. What I bring is the overview and the details together: seeing how the business fits together, then making it work in code.</p>
-                </div>
-                <ol class="principles">
-                    <li class="reveal">
-                        <h3>Listen first</h3>
-                        <p>Every good design starts with understanding what you really need, not with a technology.</p>
-                    </li>
-                    <li class="reveal">
-                        <h3>Keep it simple</h3>
-                        <p>Pick the simplest thing that works, and write down why so the reasoning lasts.</p>
-                    </li>
-                    <li class="reveal">
-                        <h3>Stay hands-on</h3>
-                        <p>I don't hand over diagrams and disappear. I help build it, too.</p>
-                    </li>
-                </ol>
-            </div>
-        </section>
-
-        <section id="toolbox" class="section">
-            <div class="wrap">
-                <header class="section-intro">
-                    <p class="eyebrow">Toolbox</p>
-                    <h2>Things I use along the way.</h2>
-                </header>
-                <div class="toolbox">
-                    <div class="tool-group reveal">
-                        <h3>Architecture &amp; collaboration</h3>
-                        <ul class="tags">
-                            <li>LeanIX</li>
-                            <li>Lucid</li>
-                            <li>Confluence</li>
-                            <li>Jira</li>
-                            <li>ADRs</li>
-                        </ul>
-                    </div>
-                    <div class="tool-group reveal">
-                        <h3>Engineering</h3>
-                        <ul class="tags">
-                            <li>.NET</li>
-                            <li>TypeScript</li>
-                            <li>Python</li>
-                            <li>AWS</li>
-                            <li>Azure</li>
-                            <li>Docker</li>
-                            <li>Kubernetes</li>
-                            <li>Terraform</li>
-                            <li>PostgreSQL</li>
-                            <li>GitLab</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section section-soft contact">
-            <div class="wrap">
-                <p class="eyebrow">Let's talk</p>
-                <h2>Got a question or a half-formed idea?<br>I'd love to hear it.</h2>
-                <p class="lead">No pitch, no pressure. Just drop me a line and we'll see where it goes.</p>
-                <a href="mailto:hello@tempala.be" class="contact-email">hello@tempala.be</a>
-                <p class="contact-alt">or find me on <a href="https://www.linkedin.com/in/daan-v-832490a5/" class="text-link">LinkedIn</a></p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="wrap">
-            <span>&copy; <span id="year">2026</span> Tempala · Daan Van Robays</span>
-            <a href="#hello" class="text-link">Back to top <span aria-hidden="true">↑</span></a>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+    <p><a href="en/index.html">English</a> · <a href="nl/index.html">Nederlands</a></p>
 </body>
 </html>

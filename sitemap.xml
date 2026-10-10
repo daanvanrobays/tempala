@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://tempala.be/en/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tempala.be/en/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tempala.be/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tempala.be/"/>
+  </url>
+  <url>
+    <loc>https://tempala.be/nl/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tempala.be/en/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tempala.be/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tempala.be/"/>
+  </url>
+  <url>
+    <loc>https://tempala.be/en/small-business</loc>
+    <lastmod>2026-10-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tempala.be/en/small-business"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tempala.be/nl/small-business"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tempala.be/small-business"/>
+  </url>
+  <url>
+    <loc>https://tempala.be/nl/small-business</loc>
+    <lastmod>2026-10-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tempala.be/en/small-business"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tempala.be/nl/small-business"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tempala.be/small-business"/>
+  </url>
+</urlset>

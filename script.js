@@ -24,4 +24,13 @@ document.querySelectorAll('.reveal').forEach(el => {
     revealObserver.observe(el);
 });
 
+// Remember the language the visitor picks, so the root address sends them there next time
+document.querySelectorAll('.lang-switch a').forEach(link => {
+    link.addEventListener('click', () => {
+        try {
+            localStorage.setItem('lang', link.dataset.lang);
+        } catch (e) {}
+    });
+});
+
 document.getElementById('year').textContent = new Date().getFullYear();

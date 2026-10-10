@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempala | Solution architecture by Daan Van Robays</title>
+    <meta name="description" content="Hi, I'm Daan, a solution architect in Ghent, Belgium. Through Tempala I help teams turn business goals into calm, sturdy systems with solution architecture, technical advice and hands-on engineering.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Daan Van Robays">
+    <meta name="theme-color" content="#e6f0d8">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Tempala">
+    <meta property="og:title" content="Tempala | Solution architecture by Daan Van Robays">
+    <meta property="og:description" content="Hi, I'm Daan, a solution architect in Ghent, Belgium. Through Tempala I help teams turn business goals into calm, sturdy systems with solution architecture, technical advice and hands-on engineering.">
+    <meta property="og:url" content="https://tempala.be/en/">
+    <meta property="og:image" content="https://tempala.be/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Tempala: pragmatic solutions, driven by curiosity">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:locale:alternate" content="nl_BE">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tempala | Solution architecture by Daan Van Robays">
+    <meta name="twitter:description" content="Hi, I'm Daan, a solution architect in Ghent, Belgium. Through Tempala I help teams turn business goals into calm, sturdy systems with solution architecture, technical advice and hands-on engineering.">
+    <meta name="twitter:image" content="https://tempala.be/og-image.png">
+    <link rel="canonical" href="https://tempala.be/en/">
+    <link rel="alternate" hreflang="en" href="https://tempala.be/en/">
+    <link rel="alternate" hreflang="nl" href="https://tempala.be/nl/">
+    <link rel="alternate" hreflang="x-default" href="https://tempala.be/">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..600,0..100&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://tempala.be/#business",
+          "name": "Tempala",
+          "url": "https://tempala.be/",
+          "logo": "https://tempala.be/logo-512.png",
+          "image": "https://tempala.be/og-image.png",
+          "email": "hello@tempala.be",
+          "founder": {
+            "@id": "https://tempala.be/#daan"
+          },
+          "knowsLanguage": [
+            "en",
+            "nl"
+          ],
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Solution architecture"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Architecture reviews & advice"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Decisions & documentation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Hands-on engineering"
+              }
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Filips van Cleeflaan 45",
+            "postalCode": "9000",
+            "addressLocality": "Ghent",
+            "addressRegion": "Oost-Vlaanderen",
+            "addressCountry": "BE"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Ghent"
+            },
+            {
+              "@type": "Country",
+              "name": "Belgium"
+            }
+          ],
+          "vatID": "BE1017373513"
+        },
+        {
+          "@type": "Person",
+          "@id": "https://tempala.be/#daan",
+          "name": "Daan Van Robays",
+          "jobTitle": "Solution Architect",
+          "url": "https://tempala.be/",
+          "sameAs": [
+            "https://www.linkedin.com/in/daan-v-832490a5/"
+          ],
+          "worksFor": {
+            "@id": "https://tempala.be/#business"
+          },
+          "homeLocation": {
+            "@type": "Place",
+            "name": "Ghent, Belgium"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://tempala.be/#website",
+          "url": "https://tempala.be/",
+          "name": "Tempala",
+          "inLanguage": [
+            "en",
+            "nl"
+          ],
+          "publisher": {
+            "@id": "https://tempala.be/#business"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://tempala.be/en/#webpage",
+          "url": "https://tempala.be/en/",
+          "name": "Tempala | Solution architecture by Daan Van Robays",
+          "description": "Hi, I'm Daan, a solution architect in Ghent, Belgium. Through Tempala I help teams turn business goals into calm, sturdy systems with solution architecture, technical advice and hands-on engineering.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://tempala.be/#website"
+          },
+          "about": {
+            "@id": "https://tempala.be/#business"
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <a href="#hello" class="brand" aria-label="Tempala, back to top">
+            <img src="../tempala-logo.svg" alt="" class="brand-mark" width="34" height="34">
+            <span class="brand-name">tempala</span>
+        </a>
+        <nav class="site-nav" aria-label="Main">
+            <a href="#help">How I can help</a>
+            <a href="#approach">How I work</a>
+            <a href="#toolbox">Toolbox</a>
+        </nav>
+        <div class="header-actions">
+            <nav class="lang-switch" aria-label="Language">
+                <a href="../nl/index.html" hreflang="nl" lang="nl" data-lang="nl">NL</a>
+                <a href="../en/index.html" hreflang="en" lang="en" data-lang="en" aria-current="page">EN</a>
+            </nav>
+            <a href="#contact" class="pill pill-small">Say hi</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hello" class="hello">
+            <div class="hello-light" aria-hidden="true"></div>
+            <div class="wrap">
+                <p class="eyebrow">Hi, I'm Daan</p>
+                <h1>Pragmatic solutions,<br>driven by <em>curiosity</em>.</h1>
+                <p class="lead">I'm a solution architect who enjoys turning tangled business questions into calm, sturdy systems. And I still like getting my hands dirty in the code.</p>
+                <div class="hello-actions">
+                    <a href="#contact" class="pill">Let's have a chat</a>
+                    <a href="#help" class="text-link">See how I can help <span aria-hidden="true">↓</span></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="help" class="section">
+            <div class="wrap">
+                <header class="section-intro">
+                    <p class="eyebrow">How I can help</p>
+                    <h2>Architecture that connects your business and your technology.</h2>
+                </header>
+                <ul class="help-list">
+                    <li class="reveal">
+                        <h3>Solution architecture</h3>
+                        <p>You have a goal, and I help shape the system that gets you there. We weigh performance, scalability and maintainability together, so the design still makes sense a few years from now.</p>
+                    </li>
+                    <li class="reveal">
+                        <h3>Architecture reviews &amp; advice</h3>
+                        <p>Stuck on a choice, or want a second pair of eyes? I review your architecture and strategy with you and talk through the trade-offs in plain language, so you can decide with confidence.</p>
+                    </li>
+                    <li class="reveal">
+                        <h3>Clear decisions &amp; documentation</h3>
+                        <p>Diagrams, decision records and a well-kept application landscape. Everybody understands what we build, and why.</p>
+                    </li>
+                    <li class="reveal">
+                        <h3>Hands-on when it counts</h3>
+                        <p>When it helps, I join the team in the code and the pipelines to turn the design into working software.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="approach" class="section section-soft">
+            <div class="wrap approach">
+                <div class="approach-text">
+                    <p class="eyebrow">How I work</p>
+                    <h2>Calm, open-minded and curious.</h2>
+                    <p>I'm interested in a lot of things, and solving problems comes naturally to me. I use a mix of pragmatism and experimentation: try something, learn from it, improve.</p>
+                    <p>The people I work with, on projects and off them, are what keeps me getting better every day. What I bring is the overview and the details together: seeing how the business fits together, then making it work in code.</p>
+                </div>
+                <ol class="principles">
+                    <li class="reveal">
+                        <h3>Listen first</h3>
+                        <p>Every good design starts with understanding what you really need, not with a technology.</p>
+                    </li>
+                    <li class="reveal">
+                        <h3>Keep it simple</h3>
+                        <p>Pick the simplest thing that works, and write down why so the reasoning lasts.</p>
+                    </li>
+                    <li class="reveal">
+                        <h3>Stay hands-on</h3>
+                        <p>I don't hand over diagrams and disappear. I help build it, too.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="toolbox" class="section">
+            <div class="wrap">
+                <header class="section-intro">
+                    <p class="eyebrow">Toolbox</p>
+                    <h2>Things I use along the way.</h2>
+                </header>
+                <div class="toolbox">
+                    <div class="tool-group reveal">
+                        <h3>Architecture &amp; collaboration</h3>
+                        <ul class="tags">
+                            <li>LeanIX</li>
+                            <li>Lucid</li>
+                            <li>Confluence</li>
+                            <li>Jira</li>
+                            <li>ADRs</li>
+                        </ul>
+                    </div>
+                    <div class="tool-group reveal">
+                        <h3>Engineering</h3>
+                        <ul class="tags">
+                            <li>.NET</li>
+                            <li>TypeScript</li>
+                            <li>Python</li>
+                            <li>AWS</li>
+                            <li>Azure</li>
+                            <li>Docker</li>
+                            <li>Kubernetes</li>
+                            <li>Terraform</li>
+                            <li>PostgreSQL</li>
+                            <li>GitLab</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bridge">
+            <div class="wrap">
+                <div>
+                    <h2>Small business? I also look after websites and IT.</h2>
+                    <p>Web design, maintenance, cloud and everyday IT, from one person you can just mail.</p>
+                </div>
+                <a href="../en/small-business.html" class="pill">Tempala for small businesses <span aria-hidden="true">→</span></a>
+            </div>
+        </section>
+
+        <section id="contact" class="section section-soft contact">
+            <div class="wrap">
+                <p class="eyebrow">Let's talk</p>
+                <h2>Got a question or a half-formed idea?<br>I'd love to hear it.</h2>
+                <p class="lead">No pitch, no pressure. Just drop me a line and we'll see where it goes.</p>
+                <a href="mailto:hello@tempala.be" class="contact-email">hello@tempala.be</a>
+                <p class="contact-alt">or find me on <a href="https://www.linkedin.com/in/daan-v-832490a5/" class="text-link">LinkedIn</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <span>&copy; <span id="year">2026</span> Tempala · Daan Van Robays · Filips van Cleeflaan 45, 9000 Gent, Belgium · VAT BE 1017.373.513</span>
+            <a href="#hello" class="text-link">Back to top <span aria-hidden="true">↑</span></a>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempala</title>
+    <link rel="alternate" hreflang="en" href="https://tempala.be/en/small-business">
+    <link rel="alternate" hreflang="nl" href="https://tempala.be/nl/small-business">
+    <link rel="alternate" hreflang="x-default" href="https://tempala.be/small-business">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <script>
+        // Send the visitor to their language: saved choice first, then the device locale
+        (function () {
+            var supported = ['en', 'nl'];
+            var lang = null;
+            try {
+                lang = localStorage.getItem('lang');
+            } catch (e) {}
+            if (supported.indexOf(lang) === -1) {
+                lang = 'en';
+                var preferred = navigator.languages || [navigator.language];
+                for (var i = 0; i < preferred.length; i++) {
+                    var code = (preferred[i] || '').toLowerCase().split('-')[0];
+                    if (supported.indexOf(code) !== -1) {
+                        lang = code;
+                        break;
+                    }
+                }
+            }
+            location.replace(lang + '/small-business.html' + location.hash);
+        })();
+    </script>
+    <noscript><meta http-equiv="refresh" content="0; url=en/small-business.html"></noscript>
+</head>
+<body>
+    <p><a href="en/small-business.html">English</a> · <a href="nl/small-business.html">Nederlands</a></p>
+</body>
+</html>
