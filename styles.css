@@ -9,7 +9,6 @@
     --dark-lighter: #141414;
     --dark-card: #1a1a1a;
     --neon: #7bc142;
-    --neon-bright: #a4d65e;
     --neon-glow: rgba(123, 193, 66, 0.5);
     --text: #ffffff;
     --text-muted: #888888;
@@ -36,9 +35,9 @@ body {
 
 /* Animated background gradient */
 @keyframes gradient-shift {
-    0% { background-position: 0% 50%; }
+    0% { background-position: 0 50%; }
     50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    100% { background-position: 0 50%; }
 }
 
 /* Header */
@@ -54,6 +53,7 @@ header {
 
 header.scrolled {
     background: rgba(10, 10, 10, 0.9);
+    -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(123, 193, 66, 0.2);
 }
@@ -385,7 +385,6 @@ header.scrolled {
 
 /* About Section */
 .about {
-    padding: 150px 0;
     background: var(--dark-lighter);
     position: relative;
     clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
